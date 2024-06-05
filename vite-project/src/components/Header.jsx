@@ -2,10 +2,14 @@ import * as React from 'react';
 import {AppBar, Container, Toolbar, Typography, Box, IconButton, Menu, MenuItem, Button, Tooltip, Avatar} from '@mui/material';
 import AdbIcon from "@mui/icons-material/Adb"
 import MenuIcon from '@mui/icons-material/Menu';
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import {useNavigate} from "react-router-dom"
+
+const pages = ['Home','Our Services',];
+const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
+  const navigate = useNavigate()
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -16,31 +20,49 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (e) => {
+e.preventDefault();
+console.log(e.target.innerText);
+
+if(e.target.innerText == "HOME"){
+  navigate("/")
+}
+if(e.target.innerText == "OUR SERVICES"){
+  navigate("/ourservices")
+}
+
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (e) => {
+    e.preventDefault();
+console.log(e.target.innerText);
+if(e.target.innerText == "LOGIN"){
+  navigate("/login")
+}
+if(e.target.innerText == "Profile"){
+  navigate("/profile")
+}
     setAnchorElUser(null);
   };
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{background:"white"}}>
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AdbIcon  sx={{color : 'black', display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="#"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'black',
               textDecoration: 'none',
             }}
           >
@@ -58,7 +80,7 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            <Menu 
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -73,6 +95,7 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
+               
                 display: { xs: 'block', md: 'none' },
               }}
             >
@@ -107,7 +130,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 1, color: 'black', display: 'block' }}
               >
                 {page}
               </Button>
