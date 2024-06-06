@@ -3,7 +3,8 @@ import {AppBar, Container, Toolbar, Typography, Box, IconButton, Menu, MenuItem,
 import AdbIcon from "@mui/icons-material/Adb"
 import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate} from "react-router-dom"
-
+import { useEffect } from 'react';
+import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded';
 const pages = ['Home','Our Services',];
 const settings = ['Profile', 'Logout'];
 
@@ -45,6 +46,18 @@ if(e.target.innerText == "Profile"){
 }
     setAnchorElUser(null);
   };
+
+
+  const getProfile = async() => {
+try {
+  const res = await axios.get();
+} catch (error) {
+  console.log(error.message);
+}
+  }
+  useEffect(()=>{
+    getProfile()
+  },[])
 
   return (
     <AppBar position="static">
