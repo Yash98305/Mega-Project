@@ -1,0 +1,62 @@
+.navMain{
+    width: 100vw;
+    height: 8vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: static;
+}
+.navSideBar{
+    height: 100%;
+    width: 15%;
+    background-color: rgb(10, 37, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Mukta";
+    color: rgb(255, 209, 0);
+    font-size: 1rem;
+}
+.navMidBar{
+    height: 100%;
+    width: 55%;
+    background-color: rgb(11, 46, 69);
+}
+.navEndBar{
+    height: 100%;
+    width: 30%;
+    background-color: rgb(255, 209, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+ /* responsive */
+@media screen and (max-width: 900px) {
+    .navSideBar{
+        font-size: 0.6rem;
+    }
+}
+@media screen and (max-width: 870px) {
+    .navSideBar{
+        font-size: 0.55rem;
+    }
+}
+@media screen and (max-width: 800px) {
+    .navSideBar{
+        font-size: 0.50rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    .navSideBar{
+        font-size: 0.45rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    .navSideBar{
+        font-size: 0.40rem;
+    }
+}

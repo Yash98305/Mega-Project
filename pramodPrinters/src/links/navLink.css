@@ -1,0 +1,28 @@
+@media screen and (max-width: 900px) {
+    #navLink{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 740px) {
+    #navLink{
+        font-size: 0.75rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    #navLink{
+        font-size: 0.70rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    #navLink{
+        font-size: 0.65rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    #basic-button{
+        display: "block";
+    }
+    #navLink{
+        display: "none";
+    }
+}
