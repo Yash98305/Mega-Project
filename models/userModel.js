@@ -4,58 +4,68 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema({
-  name: {
+  bussiness: {
     type: String,
-    required: [true, "Please Enter Your Name"],
-    maxLength: [30, "Name cannot exceed 30 characters"],
-    minLength: [4, "Name should have more than 4 characters"],
+    required: true,
+  },
+  fname: {
+    type: String,
+    required: true,
+  },
+  lname: {
+    type: String,
+    required: true,
   },
   email: {
     type: String,
-    required: [true, "Please Enter Your Email"],
+    required: true,
     unique: true,
   },
   password: {
     type: String,
-    required: [true, "Please Enter Your Password"],
-    minLength: [8, "Password should be greater than 8 characters"],
-    select: false,
+    required: true,
   },
   role: {
     type: String,
     default: "user",
   },
-  dob: {
-    type: Date
-},
-aadhaar: {
-  type: Number,
-  unique: true,
-  maxLength: [12, "Invalid Aadhaar"],
-  minLength: [12, "Invalid Aadhaar"],
-  trim: true,
-},
-gender: {
-  type: String,
-  enum: ["male", "female", "transgender"],
-},
-phone: {
-  type: Number
-},
 
-school: {
-  type: mongoose.Schema.Types.ObjectId,
-  ref: "School",
-},
-
+  gender: {
+    type: String,
+    enum: ["male", "female", "others"],
+  },
+  phone: {
+    type: Number,
+    required: true,
+  },
+  country: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  pincode: {
+    type: Number,
+  },
+  gst: {
+    type: String,
+  },
+  address :{
+    type: String,
+  },
+  whatsapp : {
+    type: Number,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
-
   otp: {
-    type: String
-},
+    type: String,
+  },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });
@@ -69,8 +79,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.getJWTToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-  });
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {});
 };
 
 userSchema.methods.comparePassword = async function (password) {
