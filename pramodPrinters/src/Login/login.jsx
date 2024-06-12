@@ -9,7 +9,12 @@ import { MainPageBack } from "../HomePages/MainPageBack";
 
 export function Login() {
   const [showLoginForm, setShowLoginForm] = React.useState(true);
-
+const [bussiness,setBussiness] = React.useState();
+const [fname,setFname] = React.useState();
+const [lname,setLname] = React.useState();
+const [phone,setPhone] = React.useState();
+const [password,setPassword] = React.useState();
+const [email,setEmail] = React.useState();
   const showLoginFormFunc = () => {
     setShowLoginForm(!showLoginForm);
   };
@@ -63,7 +68,9 @@ export function Login() {
             </div>
             <div className="loginInput">
               <form action="" id="loginForm">
-                <Textfield label="Email" variant="outlined" width={"100%"} type={"email"}/>
+                <Textfield label="Email" variant="outlined" width={"100%"} type={"email"} value={email} name = "email"  onChange={(e) => {
+                setEmail(e.target.value);
+              }} />
                 <Textfield label="Password" variant="outlined" width={"80%"} type={"password"}/>
                 <div
                   style={{
