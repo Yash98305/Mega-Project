@@ -62,7 +62,7 @@ export function Login() {
 
   useEffect(() => {
     // if (auth.token) {
-    //   toast.success(`You are already logged in`);
+    //   toast.success(You are already logged in);
     //   navigate("/");
     // }
   }, [navigate, auth]);

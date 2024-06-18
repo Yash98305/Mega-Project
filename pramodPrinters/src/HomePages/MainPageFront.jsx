@@ -1,11 +1,21 @@
 import React from "react";
 import "./MainPageCSS.css";
 import SideImg from "../assets/SideImg.jpg";
+import { motion } from "framer-motion";
 
 export function MainPageFront() {
   return (
     <div className="mainPageFront">
-      <div className="CompanyInfo">
+      <motion.div
+        className="CompanyInfo"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 1.6,
+          delay: 0.5,
+          ease: "backInOut",
+        }}
+      >
         <div className="CompanySalutation">
           <h3>Welcome to</h3>
           <h1>PRAMOD PRINTERS</h1>
@@ -16,10 +26,18 @@ export function MainPageFront() {
           <h2>PRAMOD PRAKASHAN</h2>
         </div>
         <h4>Simple Shape and Your Ideas with Us !!</h4>
-      </div>
-      <div className="FrontImg">
-            <img src={SideImg} alt="Img" />
-          </div>
+      </motion.div>
+      <motion.div
+        className="FrontImg"
+        initial={{ x: "100%" }}
+        animate={{ x: "0%" }}
+        transition={{
+          duration: 1.5,
+          ease: "easeInOut",
+        }}
+      >
+        <img src={SideImg} alt="Img" />
+      </motion.div>
     </div>
   );
 }
