@@ -1,6 +1,7 @@
 import React from "react";
 import "./services.css";
 import Img1 from "../assets/Img1.jpg";
+import { motion } from "framer-motion";
 
 export function Services() {
   return (
@@ -20,7 +21,17 @@ export function Services() {
         </div>
         <div className="servcesDiv">
           <h2>WIDE RANGE OF PRINTING SERVICES</h2>
-          <div className="services"></div>
+          {/* <div className="services"></div> */}
+          <motion.div
+            className="services"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
+          ></motion.div>
         </div>
       </div>
     </div>

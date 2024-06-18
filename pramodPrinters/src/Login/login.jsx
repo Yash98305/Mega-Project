@@ -6,6 +6,7 @@ import { AuthButton } from "../TextField/AuthButton";
 import { Textfield } from "../TextField/textField";
 import Checkbox from "@mui/material/Checkbox";
 import { MainPageBack } from "../HomePages/MainPageBack";
+import { motion } from "framer-motion";
 
 export function Login() {
   const [showLoginForm, setShowLoginForm] = React.useState(true);
@@ -20,7 +21,16 @@ export function Login() {
     <div className="loginMainPage">
       <MainPageBack />
       {showLoginForm ? (
-        <div className="loginPageFront">
+        <motion.div
+          className="loginPageFront"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
           <img src={Img} alt="" />
           <div className="loginForm">
             <div
@@ -63,8 +73,18 @@ export function Login() {
             </div>
             <div className="loginInput">
               <form action="" id="loginForm">
-                <Textfield label="Email" variant="outlined" width={"100%"} type={"email"}/>
-                <Textfield label="Password" variant="outlined" width={"80%"} type={"password"}/>
+                <Textfield
+                  label="Email"
+                  variant="outlined"
+                  width={"100%"}
+                  type={"email"}
+                />
+                <Textfield
+                  label="Password"
+                  variant="outlined"
+                  width={"80%"}
+                  type={"password"}
+                />
                 <div
                   style={{
                     display: "flex",
@@ -89,13 +109,22 @@ export function Login() {
                     {" Recover Password"}
                   </Link>
                 </div>
-                <AuthButton text={"Login"} width={"78%"} height={"15%"}/>
+                <AuthButton text={"Login"} width={"78%"} height={"15%"} />
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
       ) : (
-        <div className="registerPageFront">
+        <motion.div
+          className="registerPageFront"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
           <img src={Img} alt="" />
           <div className="loginForm">
             <div
@@ -138,19 +167,49 @@ export function Login() {
             </div>
             <div className="registerInput">
               <form action="" id="registerForm">
-                <Textfield label="Your Bussiness Name" variant="outlined" width={"100%"} type={"text"}/>
+                <Textfield
+                  label="Your Bussiness Name"
+                  variant="outlined"
+                  width={"100%"}
+                  type={"text"}
+                />
                 <div className="registerNameDiv">
-                <Textfield label="First Name" variant="outlined" width={"49%"} type={"text"}/>
-                <Textfield label="Last Name" variant="outlined" width={"49%"} type={"text"}/>
+                  <Textfield
+                    label="First Name"
+                    variant="outlined"
+                    width={"49%"}
+                    type={"text"}
+                  />
+                  <Textfield
+                    label="Last Name"
+                    variant="outlined"
+                    width={"49%"}
+                    type={"text"}
+                  />
                 </div>
-                <Textfield label="Mobile No." variant="outlined" width={"100%"} type={"number"}/>
-                <Textfield label="Email" variant="outlined" width={"80%"} type={"email"}/>
-                <Textfield label="Password" variant="outlined" width={"80%"} type={"password"}/>
-                <AuthButton text={"Register"} width={"78%"} height={"12%"}/>
+                <Textfield
+                  label="Mobile No."
+                  variant="outlined"
+                  width={"100%"}
+                  type={"number"}
+                />
+                <Textfield
+                  label="Email"
+                  variant="outlined"
+                  width={"80%"}
+                  type={"email"}
+                />
+                <Textfield
+                  label="Password"
+                  variant="outlined"
+                  width={"80%"}
+                  type={"password"}
+                />
+                <AuthButton text={"Register"} width={"78%"} height={"12%"} />
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );
