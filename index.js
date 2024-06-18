@@ -24,6 +24,8 @@ app.use(fileUpload());
 
 const userRouter = require('./routers/userRouter.js');
 app.use("/api/v1/user",userRouter)
+const adminRouter = require('./routers/adminRouter.js');
+app.use("/api/v1/admin",adminRouter)
 
 
 app.get('/',(req,res)=>{
