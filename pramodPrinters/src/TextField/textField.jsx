@@ -2,7 +2,6 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 
 export function Textfield({ label, variant, width, type, value, name, set }) {
-  console.log(label, variant, width, type, value, name, set);
   return (
     <TextField
     required
