@@ -7,7 +7,6 @@ import { Textfield } from "../TextField/textField.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import useAuth from "../context/useAuth.jsx";
 import { MainPageBack } from "../HomePages/MainPageBack";
-import { motion } from "framer-motion";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
@@ -63,7 +62,7 @@ export function Login() {
 
   useEffect(() => {
     // if (auth.token) {
-    //   toast.success(`You are already logged in`);
+    //   toast.success(You are already logged in);
     //   navigate("/");
     // }
   }, [navigate, auth]);
@@ -72,16 +71,7 @@ export function Login() {
     <div className="loginMainPage">
       <MainPageBack />
       {showLoginForm ? (
-        <motion.div
-          className="loginPageFront"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}
-        >
+        <div className="loginPageFront">
           <img src={Img} alt="Login" />
           <div className="loginForm">
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", width: "100%" }}>
@@ -133,7 +123,7 @@ export function Login() {
               </form>
             </div>
           </div>
-        </motion.div>
+        </div>
       ) : (
         <div className="registerPageFront">
           <img src={Img} alt="Register" />
@@ -176,7 +166,7 @@ export function Login() {
               </form>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
     </div>

@@ -1,21 +1,22 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import zIndex from "@mui/material/styles/zIndex";
 
-export function Textfield({ label, variant, width, type}) {
+export function Textfield({ label, variant, width, type, value, name, set }) {
   return (
     <TextField
+    required
       id="outlined-basic"
       label={label}
       variant={variant}
       fullWidth
       type={type}
+      value={value}
+      name={name}
+      onChange={(e) => set(e.target.value)}
       sx={{
         zIndex: "1",
-        width: { width },
-        backgroundColor: `${
-          variant === "outlined" ? "transparent" : "rgb(30,109,122)"
-        }`,
+        width: width,
+        backgroundColor: variant === "outlined" ? "transparent" : "rgb(30,109,122)",
         "& .MuiOutlinedInput-root": {
           "& fieldset": {
             borderColor: "rgb(11, 46, 69)",
@@ -35,7 +36,7 @@ export function Textfield({ label, variant, width, type}) {
         },
         "& .MuiInputLabel-outlined": {
           color: "rgb(255, 209, 0)",
-          fontSize:"1rem"
+          fontSize: "1rem",
         },
       }}
     />
